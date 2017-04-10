@@ -2,25 +2,73 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>BlucePan</groupId>
-  <artifactId>springboot</artifactId>
+  <artifactId>springboot-mybatis</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>springboot Maven Webapp</name>
+  <name>springboot-mybatis Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
+       <dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	</dependency>
+	<!-- mybatis -->
+		<dependency>
+		   <groupId>org.mybatis</groupId>
+		   <artifactId>mybatis</artifactId>
+		   <version>3.4.3</version>
+	   </dependency>
+     <!-- 导入Mysql数据库链接jar包 -->  
+        <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.27</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+    <!-- springboot与mybatis的依赖包 -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+	    <groupId>org.mybatis.spring.boot</groupId>
+	    <artifactId>mybatis-spring-boot-starter</artifactId>
+	    <version>1.2.0</version>
+	</dependency>
+    	<!-- springboot 核心jar包 -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter</artifactId>
+	    <version>1.5.2.RELEASE</version>
     </dependency>
-    <dependency>
-     <groupId>javax.servlet</groupId>
-     <artifactId>servlet-api</artifactId>
-     <version>2.5</version>
+	<!-- Springboot web依赖 -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	    <version>1.5.2.RELEASE</version>
+	</dependency>
+		<!-- springboot测试 -->
+		<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <version>1.4.1.RELEASE</version>
+</dependency>
+    <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->  
+	  <dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	
+	<!-- 日志包 -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
     </dependency>
+	
+	
   </dependencies>
   <build>
-    <finalName>springboot</finalName>
+    <finalName>springboot-mybatis</finalName>
   </build>
 </project>
