@@ -4,4 +4,35 @@
 	<select id="queryAll" resultType="com.study.model.User" parameterType="com.study.model.User">
 		select * from user
 	</select>
+	
+	<insert id="addEntity" parameterType="com.study.model.User">
+		insert into user
+		(
+		id,name,age,createTime
+		) values
+		(
+		#{id},#{name},#{age},now()
+		)
+	</insert>
+	
+	<select id="queryUserById" parameterType="String" resultType="com.study.model.User">
+		select * from user where id=#{id}
+	</select>
+	
+	<update id="editEntity" parameterType="com.study.model.User">
+		UPDATE user set createTime=now()
+		<if test="name != null and name != ''">
+			,name = #{name}
+		</if>
+		<if test="age != null and age != ''">
+			,age = #{age}
+		</if>
+		WHERE id = #{id}
+	</update>
+	
+		<delete id="deleteEntity" parameterType="string">
+		DELETE FROM
+		user WHERE id
+		= #{id}
+	</delete>
 </mapper> 

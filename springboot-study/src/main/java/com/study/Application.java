@@ -3,9 +3,15 @@ package com.study;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Import;
+
+import com.study.util.SpringUtil;
 
 @SpringBootApplication
+//@ServletComponentScan //这个就是扫描相应的Servlet包
 @MapperScan("com.study.dao")    //对应Mapper dao层不用每个都加@Mapper注解
+@Import(value={SpringUtil.class})
 public class Application {
 
 	// 程序启动入口

@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 3112656562961695336L;
-	private Integer id;
+	private String id;
 	private String name;
 	private Integer age;
 	private String createTime;
 	
-	public Integer getId() {
+
+	public String getId() {
 		return id;
-	}public void setId(Integer id) {
+	}public void setId(String id) {
 		this.id = id;
 	}
 	
@@ -31,6 +32,10 @@ public class User implements Serializable {
 		return createTime;
 	}public void setCreateTime(String createTime) {
 		this.createTime = createTime;
+	}
+	@Override
+	public String toString() {
+		return id + "\t"+ name + "\t"+ age+"\t"+createTime;
 	}
 	
 

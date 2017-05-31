@@ -3,24 +3,42 @@ package com.study.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import com.study.BaseController;
 import com.study.model.User;
 import com.study.service.UserService;
 
-@RestController
+@Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 	@Resource
 	private UserService userService;
-	
-	@RequestMapping("/querAllUser")
-	public String queryAllUser(){
-		User u=new User();
-		List<User> userList=userService.queryAllUser(u);
+
+	//后台首页
+	@RequestMapping("/index.html")
+	public String index(Model model,HttpServletRequest request){
+		User user = getLoginUser(request);
+		if(user!=null){
+			System.out.println("进入后台首页>>>>>>");
+			return "background/commom/index";
+		}
+		System.out.println("进入后台首页>>>>>>");
+		return "background/login";
 		
-		return "我的第一个springboot小列子>>>>>>>"+userList.size();
+		
 	}
+	
+	//登录页面
+	@RequestMapping("/login.html")
+	public String login(Model model){
+		
+		return "background/commom/index";
+		
+	}
+	
 }
