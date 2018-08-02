@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 @Configuration
-@EnableTransactionManagement  //¼ÓÉÏÕâ¸ö×¢½â£¬Ê¹µÃÖ§³ÖÊÂÎñ
+@EnableTransactionManagement  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½â£¬Ê¹ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class MyBatisConfig implements TransactionManagementConfigurer {
 	@Autowired
 	private DataSource dataSource;
@@ -23,13 +23,13 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 	public PlatformTransactionManager annotationDrivenTransactionManager() {		
 		return new DataSourceTransactionManager(dataSource);
 	}
-	
+	 
 	@Bean(name = "sqlSessionFactory") 
 	public SqlSessionFactory sqlSessionFactoryBean(){
 		SqlSessionFactoryBean bean =new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		try {
-/*		   //¶ÔÓ¦µ½Ö¸¶¨µÄxml
+/*		   //ï¿½ï¿½Ó¦ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½xml
 	        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 	        bean.setMapperLocations(resolver.getResources("classpath:com/study/mapping/*Mapping.xml"));
 			*/
