@@ -28,6 +28,8 @@ public class DruidConfiguration {
         return new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
     }
 
+    
+    
     @Bean
     public DataSource druidDataSource(@Value("${spring.datasource.driverClassName}") String driver,
                                       @Value("${spring.datasource.url}") String url,
